@@ -42,6 +42,7 @@ function getCurrentRow() {
 }
 
 function renderBoxes(selectedPokemon, gameContainer) {
+  gameContainer.empty();
   const len = selectedPokemon.length;
   for (let i = 0; i < GAME_DATA.TRIES; i++) {
     const row = document.createElement("div");
@@ -98,6 +99,7 @@ function shareResult() {
 
 async function showPokemon(mon) {
   const photoContainer = $("#photo-holder");
+  photoContainer.empty();
   const btnHolder = $("#results-modal .btn-holder");
   const pokemonName = document.createElement("div");
   pokemonName.classList.add("pokemon-name");
@@ -228,7 +230,6 @@ function inputHandler(value) {
     }
   } else if (isLetter(value)) {
     const nearestBox = getNearestEmptyBox(currentRow);
-
     if (nearestBox && GAME_STATE.guess.length < selectedPokemon.length) {
       nearestBox.innerText = value.toUpperCase();
       GAME_STATE.guess += value;
@@ -261,6 +262,37 @@ function handleKeyboardInput() {
       inputHandler(value);
     }
   });
+}
+
+function resetKeyboard() {
+  $(".kb-key.kb-letter").each(function () {
+    if (this.classList.contains("green")) {
+      this.classList.remove("green");
+    }
+    if (this.classList.contains("yellow")) {
+      this.classList.remove("yellow");
+    }
+    if (this.classList.contains("gray")) {
+      this.classList.remove("gray");
+    }
+  });
+}
+
+function restartGame() {
+  GAME_STATE.isGameOver = false;
+  GAME_STATE.attemptNo = 1;
+  GAME_STATE.result = "";
+  GAME_STATE.guess = "";
+  const randomIndex = Math.floor(Math.random() * GAME_STATE.allPokemon.length);
+  const selectedPokemon = GAME_STATE.allPokemon[randomIndex];
+  GAME_STATE.selectedPokemon = selectedPokemon;
+  const gameContainer = $("#game-container");
+  renderBoxes(selectedPokemon, gameContainer);
+  resetKeyboard();
+
+  $("#results-message").empty();
+  $("#photo-holder").empty();
+  $("#share-btn-holder").empty();
 }
 
 $(document).ready(async function () {
@@ -303,6 +335,10 @@ $(document).ready(async function () {
     renderBoxes(selectedPokemon, gameContainer);
     handleInput();
     handleKeyboardInput();
+
+    $("#restart-btn").click(function () {
+      restartGame();
+    });
   } else {
   }
 });

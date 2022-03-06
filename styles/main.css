@@ -58,7 +58,8 @@ div#header {
 }
 
 button#submit-btn,
-#share-btn {
+#share-btn,
+#restart-btn {
   border: none;
   padding: 8px;
   width: 100%;
@@ -66,7 +67,7 @@ button#submit-btn,
   background-color: #5752ff;
   color: white;
   text-transform: uppercase;
-  letter-spacing: -0.5px;
+  letter-spacing: -1px;
   cursor: pointer;
   font-size: 18px;
 }
