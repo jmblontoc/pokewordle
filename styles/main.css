@@ -81,6 +81,7 @@ img.pokemon-image {
   font-weight: 700;
   display: flex;
   flex-direction: column;
+  text-align: center;
 }
 
 .pokemon-name {

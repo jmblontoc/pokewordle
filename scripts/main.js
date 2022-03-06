@@ -90,6 +90,12 @@ function updateAttempt() {
   }
 }
 
+function shareResult() {
+  const result = getResultEmoji();
+  navigator.clipboard.writeText(result);
+  toastr.info("Your result has been copied to your clipboard");
+}
+
 async function showPokemon(mon) {
   const photoContainer = $("#photo-holder");
   const btnHolder = $("#results-modal .btn-holder");
@@ -112,6 +118,9 @@ async function showPokemon(mon) {
       if (GAME_STATE.result === "won") {
         message = "Splendid! You guessed the Pokemon correctly!";
         const shareBtn = getShareBtn();
+        shareBtn.onclick = function () {
+          shareResult();
+        };
         btnHolder.append(shareBtn);
       } else {
         message = "You lost! Better luck next time.";
@@ -133,6 +142,9 @@ async function showPokemon(mon) {
     if (GAME_STATE.result === "won") {
       message = "Splendid! You guessed the Pokemon correctly!";
       const shareBtn = getShareBtn();
+      shareBtn.onclick = function () {
+        shareResult();
+      };
 
       btnHolder.append(shareBtn);
     } else {

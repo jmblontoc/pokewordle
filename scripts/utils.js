@@ -87,3 +87,37 @@ function convertNameToPayload(mon) {
       return mon;
   }
 }
+
+function countLines(str) {
+  return str.split(/\r\n|\r|\n/).length;
+}
+
+function getResultEmoji() {
+  const emojis = {
+    green: "🟩",
+    yellow: "🟨",
+    gray: "⬛",
+  };
+  let result = "";
+  const rows = $("div.row");
+  rows.each(function () {
+    const letters = this.children;
+    for (let letter of letters) {
+      {
+        if (letter.classList.contains("green")) {
+          result += emojis.green;
+        } else if (letter.classList.contains("yellow")) {
+          result += emojis.yellow;
+        } else if (letter.classList.contains("gray")) {
+          result += emojis.gray;
+        } else {
+          result += "";
+        }
+      }
+    }
+    result += "\n";
+  });
+
+  const emojiResult = result.trim();
+  return `Score: ${countLines(emojiResult)}/${GAME_DATA.TRIES}\n${emojiResult}`;
+}
