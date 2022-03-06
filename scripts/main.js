@@ -224,6 +224,7 @@ function inputHandler(value) {
   }
 }
 
+// For actual keyboard
 function handleInput() {
   $(document).keydown(function (e) {
     if (!GAME_STATE.isGameOver) {
@@ -240,10 +241,13 @@ function handleSubmit() {
   }
 }
 
+// For on-screen keyboard
 function handleKeyboardInput() {
   $("div.kb-key").click(function () {
-    const value = this.innerText.toLowerCase();
-    inputHandler(value);
+    if (!GAME_STATE.isGameOver) {
+      const value = this.innerText.toLowerCase();
+      inputHandler(value);
+    }
   });
 }
 
@@ -283,6 +287,7 @@ $(document).ready(async function () {
     GAME_STATE.selectedPokemon = selectedPokemon;
     GAME_STATE.allPokemon = allPokemonArr;
     const gameContainer = $("#game-container");
+
     renderBoxes(selectedPokemon, gameContainer);
     handleInput();
     handleKeyboardInput();
