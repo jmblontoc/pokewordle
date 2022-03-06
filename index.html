@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="./assets/pokeball.png" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Toastr-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    <!-- jQuery Modal -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css"
+    />
+
+    <script src="main.js"></script>
+    <title>Simple PokeWordle</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <div id="main-container">
+        <div id="header">
+          <img class="logo" src="./assets/pokeball.png" />
+          <h1>PokéWordle</h1>
+        </div>
+
+        <div id="game-container"></div>
+        <div id="game-keyboard">
+          <div class="kb-row">
+            <div class="kb-key kb-letter">q</div>
+            <div class="kb-key kb-letter">w</div>
+            <div class="kb-key kb-letter">e</div>
+            <div class="kb-key kb-letter">r</div>
+            <div class="kb-key kb-letter">t</div>
+            <div class="kb-key kb-letter">y</div>
+            <div class="kb-key kb-letter">u</div>
+            <div class="kb-key kb-letter">i</div>
+            <div class="kb-key kb-letter">o</div>
+            <div class="kb-key kb-letter">p</div>
+          </div>
+          <div class="kb-row">
+            <div class="kb-key kb-letter">a</div>
+            <div class="kb-key kb-letter">s</div>
+            <div class="kb-key kb-letter">d</div>
+            <div class="kb-key kb-letter">f</div>
+            <div class="kb-key kb-letter">g</div>
+            <div class="kb-key kb-letter">h</div>
+            <div class="kb-key kb-letter">j</div>
+            <div class="kb-key kb-letter">k</div>
+            <div class="kb-key kb-letter">l</div>
+          </div>
+          <div class="kb-row">
+            <div class="kb-key kb-wide">Enter</div>
+            <div class="kb-key kb-letter">z</div>
+            <div class="kb-key kb-letter">x</div>
+            <div class="kb-key kb-letter">c</div>
+            <div class="kb-key kb-letter">v</div>
+            <div class="kb-key kb-letter">b</div>
+            <div class="kb-key kb-letter">n</div>
+            <div class="kb-key kb-letter">m</div>
+            <div class="kb-key kb-wide">Backspace</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="results-modal" class="modal">
+      <div id="results-message"></div>
+      <div id="photo-holder"></div>
+      <div class="btn-holder"></div>
+    </div>
+  </body>
+</html>
