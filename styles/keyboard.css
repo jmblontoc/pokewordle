@@ -1,0 +1,44 @@
+div#game-keyboard {
+  display: flex;
+  flex-direction: column;
+  margin-top: 16px;
+  width: 100%;
+}
+
+div.kb-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+div.kb-key {
+  background-color: #cdcdcd;
+  border-radius: 4px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  margin: 2px;
+  font-size: 1.2rem;
+  padding: 4px;
+  flex: 1;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  text-transform: uppercase;
+}
+
+div.kb-row :not(div.kb-wide) {
+  width: 2em;
+}
+
+div.kb-wide {
+  text-transform: capitalize;
+}
+
+@media only screen and (min-width: 600px) {
+  div#game-keyboard {
+    display: flex;
+    flex-direction: column;
+    margin-top: 16px;
+    width: auto !important;
+  }
+}
