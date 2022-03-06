@@ -57,9 +57,7 @@ div#header {
   text-align: center;
 }
 
-button#submit-btn,
-#share-btn,
-#restart-btn {
+.action-btn {
   border: none;
   padding: 8px;
   width: 100%;
@@ -70,6 +68,23 @@ button#submit-btn,
   letter-spacing: -1px;
   cursor: pointer;
   font-size: 18px;
+}
+
+#submit-button {
+  background-color: #6aaa64;
+  margin-bottom: 1rem;
+}
+
+#restart-btn {
+  border: none;
+  padding: 8px;
+  width: 100%;
+  border-radius: 4px;
+  background-color: #5752ff;
+  color: white;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 12px;
 }
 
 img.pokemon-image {

@@ -28,6 +28,7 @@ function showModal() {
 function getShareBtn() {
   const shareBtn = document.createElement("button");
   shareBtn.innerText = "Share";
+  shareBtn.classList.add("action-btn");
   shareBtn.setAttribute("id", "share-btn");
 
   return shareBtn;
@@ -335,9 +336,12 @@ $(document).ready(async function () {
     renderBoxes(selectedPokemon, gameContainer);
     handleInput();
     handleKeyboardInput();
-
     $("#restart-btn").click(function () {
       restartGame();
+    });
+
+    $("#submit-button").click(function () {
+      handleSubmit();
     });
   } else {
   }
