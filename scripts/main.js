@@ -229,7 +229,7 @@ function inputHandler(value) {
       const lastBoxWithValue = getLastBoxWithValue(currentRow);
       lastBoxWithValue.innerText = "";
     }
-  } else if (isLetter(value)) {
+  } else if (isAlphanumeric(value)) {
     const nearestBox = getNearestEmptyBox(currentRow);
     if (nearestBox && GAME_STATE.guess.length < selectedPokemon.length) {
       nearestBox.innerText = value.toUpperCase();
