@@ -102,6 +102,7 @@ function getResultEmoji() {
   const rows = $("div.row");
   rows.each(function () {
     const letters = this.children;
+    let guessName = "";
     for (let letter of letters) {
       {
         if (letter.classList.contains("green")) {
@@ -113,9 +114,11 @@ function getResultEmoji() {
         } else {
           result += "";
         }
+
+        guessName += letter.innerText;
       }
     }
-    result += "\n";
+    result += " " + guessName + "\n";
   });
 
   const emojiResult = result.trim();
