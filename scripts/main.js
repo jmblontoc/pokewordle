@@ -127,7 +127,6 @@ async function showPokemon(mon) {
         btnHolder.append(shareBtn);
       } else {
         message = "You lost! Better luck next time.";
-        message += "\n The answer is " + mon;
       }
 
       const messageElement = $("#results-message");
@@ -153,6 +152,7 @@ async function showPokemon(mon) {
       btnHolder.append(shareBtn);
     } else {
       message = "You lost! Better luck next time.";
+      message += "\n The answer is " + mon;
     }
 
     const messageElement = document.createElement("div");
